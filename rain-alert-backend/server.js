@@ -33,12 +33,12 @@ const db = mysql.createPool({
   port: 3306
 });
 
-db.connect((err) => {
+db.query("SELECT 1", (err) => {
   if (err) {
-    console.error("Database connection failed:", err.stack);
-    return;
+    console.error("❌ Database connection failed:", err.stack);
+  } else {
+    console.log("✅ Connected to MySQL database successfully.");
   }
-  console.log("✅ Connected to MySQL database successfully.");
 });
 
 // Health check endpoint
