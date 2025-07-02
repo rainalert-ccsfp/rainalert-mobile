@@ -1,0 +1,25 @@
+{
+  "name": "rain-alert-backend",
+  "version": "1.0.0",
+  "description": "Backend server for Rain Alert mobile app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "setup-db": "mysql -u root -p < setup-database.sql",
+    "seed-floods": "mysql -u root -p < seed-flood-records.sql"
+  },
+  "keywords": ["flood", "alert", "mobile", "api"],
+  "author": "Rain Alert Team",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

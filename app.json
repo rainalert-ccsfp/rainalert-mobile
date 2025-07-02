@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "2feadcdd-e75d-4d58-a9d2-d235d2482ce6"
+      }
+    },
+    "name": "RainAlert",
+    "slug": "rain-alert",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1E88E5"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1E88E5"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with others.",
+          "cameraPermission": "The app accesses your camera to let you report flood conditions."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow RainAlert to use your location to provide accurate flood alerts."
+        }
+      ]
+    ],
+    "newArchEnabled": true
+  }
+}
