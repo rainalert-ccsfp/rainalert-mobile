@@ -24,10 +24,11 @@ app.use((req, res, next) => {
 });
 
 const db = mysql.createConnection({
-  host: "153.92.15.45",
-  user: "u315184670_rainalert",
-  password: "V8l5bp!^0>d",
-  database: "u315184670_rainalert",
+  host: process.env.DB_HOST,        // srv1786.hstgr.io
+  user: process.env.DB_USER,        // u315184670_rainalert
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  port: 3306,                        // Optional, default for MySQL
 });
 
 db.connect((err) => {
