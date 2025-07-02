@@ -1,14 +1,15 @@
+require("dotenv").config(); // Make sure .env is loaded
+
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
 const { Expo } = require("expo-server-sdk");
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 const expo = new Expo();
 
-// Enable CORS for all origins
 app.use(cors({
   origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
@@ -17,18 +18,19 @@ app.use(cors({
 
 app.use(express.json());
 
-// Add request logging middleware
 app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
   next();
 });
 
-const db = mysql.createConnection({
-  host: process.env.DB_HOST,        // srv1786.hstgr.io
-  user: process.env.DB_USER,        // u315184670_rainalert
+// ✅ Use connection pool instead of single connection
+const db = mysql.createPool({
+  connectionLimit: 10,
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  port: 3306,                        // Optional, default for MySQL
+  port: 3306
 });
 
 db.connect((err) => {
