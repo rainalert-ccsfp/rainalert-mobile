@@ -9,13 +9,19 @@
     "setup-db": "mysql -u root -p < setup-database.sql",
     "seed-floods": "mysql -u root -p < seed-flood-records.sql"
   },
-  "keywords": ["flood", "alert", "mobile", "api"],
+  "keywords": [
+    "flood",
+    "alert",
+    "mobile",
+    "api"
+  ],
   "author": "Rain Alert Team",
   "license": "MIT",
   "type": "commonjs",
   "dependencies": {
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
+    "expo-server-sdk": "^3.15.0",
     "express": "^4.18.2",
     "mysql": "^2.18.1"
   },
